@@ -1,6 +1,6 @@
 # Dependências e arquivos externos
 
-O pacote básico exige Python, PySide6, NumPy e SoundFile. A edição clássica também precisa do Tkinter
+O pacote básico exige Python, PySide6, NumPy, SoundFile e SciPy. A edição clássica também precisa do Tkinter
 da instalação oficial do Python. FFmpeg é externo para filtros/encoders e alguns fluxos de streams;
 SAAT (`saat_sfx`/`saat_stream`) é externo para extração/importação compatível. Configure os executáveis
 localmente; nenhuma DLL ou EXE do SAAT foi redistribuída.
