@@ -13,5 +13,5 @@
 - SAAT, FFmpeg, OmniVoice, Qwen, Chatterbox e pesos de modelos não são redistribuídos nesta cópia.
   Obtenha-os dos respectivos projetos e respeite as licenças aplicáveis.
 
-A licença do código deste repositório ainda não foi definida pelo proprietário. Estes avisos
+O código deste projeto está sob a licença MIT, conforme o arquivo LICENSE. Estes avisos
 não substituem as licenças de dependências nem concedem direitos sobre material do jogo.

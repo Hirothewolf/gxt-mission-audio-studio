@@ -69,6 +69,7 @@ as 54 mil transcrições do projeto de demonstração.
 
 ## Licença
 
-Nenhuma licença de código foi escolhida para esta primeira publicação. Publicar este repositório
-não concede uma licença sobre GTA San Andreas, vozes, modelos ou dependências de terceiros.
-As atribuições dos metadados incluídos estão em `THIRD_PARTY_NOTICES.md`.
+O código deste projeto está disponível sob a [licença MIT](LICENSE).
+GTA San Andreas, vozes, modelos, dependências e metadados de terceiros continuam
+sujeitos aos direitos e licenças dos respectivos titulares. Consulte
+[THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) para as atribuições.
