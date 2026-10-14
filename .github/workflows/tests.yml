@@ -7,8 +7,6 @@ jobs:
     runs-on: windows-latest
     env:
       QT_QPA_PLATFORM: offscreen
-      TEMP: ${{ runner.temp }}
-      TMP: ${{ runner.temp }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -21,6 +19,12 @@ jobs:
           ffprobe -version
       - run: python -m pip install -e ".[dev]"
       - name: Qt and backend
+        env:
+          TEMP: ${{ runner.temp }}
+          TMP: ${{ runner.temp }}
         run: python -m pytest tests -q --ignore=tests/test_batch_audition_ui.py --ignore=tests/test_category_navigation_ui.py --ignore=tests/test_bulk_audio_review_ui.py --ignore=tests/test_cutscene_batch_ui.py
       - name: Classic Tk UI
+        env:
+          TEMP: ${{ runner.temp }}
+          TMP: ${{ runner.temp }}
         run: python -m unittest discover -s tests -p "test_*_ui.py" -q
