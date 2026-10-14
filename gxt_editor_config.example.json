@@ -1,0 +1,10 @@
+{
+  "project_root": "",
+  "engine_padrao": "OmniVoice",
+  "tts_engines": {
+    "omnivoice": {
+      "python": "",
+      "script": "tools/omnivoice_tts.py"
+    }
+  }
+}

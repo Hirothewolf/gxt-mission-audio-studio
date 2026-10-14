@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "gxt-mission-audio-studio"
+version = "0.1.0"
+description = "GTA San Andreas GXT editor, audio review and cutscene timeline"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = ["PySide6>=6.10,<7", "numpy>=1.26,<3", "soundfile>=0.13,<1"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.4,<10", "pytest-subtests>=0.14", "build>=1.2"]
+audio = ["scipy>=1.11"]
+google = ["google-auth>=2", "requests>=2.32"]
+
+[project.scripts]
+gxt-audio-studio = "studio.ui_qt.app:main"
+
+[tool.setuptools]
+py-modules = ["gxt_editor", "gxt_editor_qt", "saat_modloader"]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["studio*", "tools*"]
+exclude = ["tests*", "docs*"]
+
+[tool.setuptools.package-data]
+studio = ["data/*.json", "data/*.h", "data/speakers/*.json", "data/speakers/*.jsonl"]

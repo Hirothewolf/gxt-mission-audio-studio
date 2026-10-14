@@ -1,0 +1,15 @@
+# GTA San Andreas speaker index
+
+The bundled speaker database is derived from [GTA Wiki's Dialogues in GTA San Andreas](https://gta.fandom.com/wiki/Dialogues_in_GTA_San_Andreas), fetched through the public MediaWiki parse API. The retrieved page revision was `2078973` on 2026-10-07 UTC. The page describes non-mission dialogue and is marked under construction/cleanup, so its speaker claims do not establish who spoke a line in a particular mission.
+
+The database stores source section labels, source anchors, confidence/evidence labels, a `speaker_kind`, and SHA-256 fingerprints of normalized English dialogue. `named_character` is reserved for individually named characters; faction sections are `group_or_ensemble`, generic pedestrian/worker sections are `voice_archetype`, and explicit labels such as `Pilot` are `role_label`. Action and setting headings such as `Carjacking`, `Clothing shops`, `Bone County`, and `Countryside` remain source context while the lookup inherits the enclosing speaker or generic category. It does not contain dialogue excerpts. Matching is exact after NFC normalization, removal of GTA tilde control tags, folding of typographic quotes/dashes/ellipsis, case folding, and whitespace normalization. Word spelling and punctuation remain significant. Lines assigned to multiple speakers return ambiguous; explicit caller overrides take precedence. A unique match reports `mission_context_verified: false`.
+
+The wiki page had 5,779 bullet lines. The index contains 5,732 deduplicated records and 5,560 unique fingerprints; 108 fingerprints appear under multiple speaker identities. Thirteen multi-speaker bullets and two bullets without a usable speaker context were excluded. Another 32 duplicate fingerprint/identity/source-anchor entries were collapsed.
+
+Compared against the supplied `script_mapping_v3.jsonl`, 5,678 rows had source text: 35 resolved to one identity, 12 were ambiguous, and 5,631 had no exact index match. The companion `speaker_matches.jsonl` is a local overlay containing only matching SCRIPT/GXT IDs, identities, fingerprints, evidence, and source URLs. It does not modify the source manifest.
+
+The source page links to faction/character quote pages but does not provide mission dialogue. A spot check of the Fandom API pages for `Drive-By`, `In the Beginning`, `Wrong Side of the Tracks`, `End of the Line`, `Jizzy`, and `Stowaway` found walkthrough prose and no speaker-labeled transcripts, so none were used to assert mission assignments.
+
+Attribution: GTA Wiki contributors, “Dialogues in GTA San Andreas.” The site footer states community content is CC BY-SA unless otherwise noted; dialogue quotations may have separate Rockstar Games copyright. This artifact retains fingerprints and factual attribution metadata rather than the quoted dialogue. See [GTA Wiki copyright policy](https://gta.fandom.com/wiki/GTA_Wiki:Copyright).
+
+Rebuild with `python tools/build_speaker_database.py`. Add `--manifest <path>` to refresh the local exact-match overlay.
